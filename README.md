@@ -139,17 +139,10 @@ This is the same code as we saw before, but without `ceding` execution. For a si
 no-op. Nevertheless, there's no observable difference between these running two programs even though one is compiled to a `jar`
 file with full JVM capabilities including user-space multi-threading, and the other to a `js` file to be run by NodeJS.
 
-<!-- <img src="./docs/images/scala-js-threads.gif" alt="drawing" > -->
-
-#### Observations
-
-- All fibers are runnning on the *Main* thread. That's the nature of NodeJS's single-threaded runtime. What matters is that we've
-achieved concurrency irrespective of where fibers are logically run using the same codebase! Pretty neat.
-- All fibers that are kicked off concurrently are also non-deterministic, just like our Scala JVM version
 
 <img src="./docs/images/scala-js-main-thread.png" alt="drawing" >
 
-***Observations***
+#### Observations
 
 Both are non-deterministic and concurrent as observed by the `[worker#]` prefix irrespective of threads. The Scala version takes a
 little while longer to get started due to JVMs cold start nature, whereas the Node version is almost instantaneous. This _may_ be
